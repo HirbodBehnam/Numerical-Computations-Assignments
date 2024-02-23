@@ -1,0 +1,57 @@
+% !TEX program = xelatex
+\documentclass[]{article}
+\usepackage{commons/course}
+
+\begin{document}
+\printheader
+
+برای اثبات کردن این تمرین من از
+\link{https://youtu.be/KOBZdvQrSuM?si=1E7G4mHtjhBlr2qf}{این فیلم}
+استفاده کردم که در آن به کمک قضیه اساسی حساب دیفرانسیل خطا را حساب می‌کند.
+همچنین نتیجه‌ی نهایی این اثبات در آخر
+\link{https://en.wikipedia.org/wiki/Taylor\%27s_theorem\#Explicit_formulas_for_the_remainder}{این قسمت}
+از ویکیپدیا موجود است.
+
+در ابتدا از حالتی شروع می‌کنیم که کلا یک بسط تیلور یک جمله‌ای نوشته‌ایم. به عبارت دیگر داریم:
+\begin{gather*}
+    f(x) \approx f(x_0)
+\end{gather*}
+در این حالت خاطر برابر است با
+$f(x) - f(x_0)$
+که طبق قضیه‌ی اساسی حساب دیفرانسیل داریم:
+\begin{align*}
+    \text{Error} &= f(x) - f(x_0)\\
+    &= \int_{x_0}^{x} f'(t) dt
+\end{align*}
+حال همین کار را برای زمانی که دو جمله داریم انجام می‌دهیم.
+\begin{align*}
+    \text{Error} &= f(x) - \left(f(x_0) + \frac{f'(x_0)(x-x_0)}{1!}\right)\\
+    &= \left(f(x) - f(x_0)\right) - f'(x_0)(x-x_0)\\
+    &= \int_{x_0}^{x} f'(t) dt - f'(x_0)(x-x_0)
+\end{align*}
+حال انتگرال داده شده را می‌توان به کمک انتگرال گیری جز به جز به عبارت زیر تبدیل کرد:
+\begin{align*}
+    \int_{x_0}^{x} f'(t) dt &= \Big[t f'(t)\Big]_{x_0}^{x} - \int_{x_0}^{x} t f''(t) dt\\
+    &= x f'(x) - x_0 f'(x_0) - \int_{x_0}^{x} t f''(t) dt
+\end{align*}
+پس با جایگذاری و باز کردن عبارت بالاتر داریم:
+\begin{align*}
+    \text{Error} &= \int_{x_0}^{x} f'(t) dt - f'(x_0)(x-x_0)\\
+    &= x f'(x) - \cancel{x_0 f'(x_0)} - \int_{x_0}^{x} t f''(t) dt - xf'(x_0) + \cancel{x_0f'(x_0)}\\
+    &= x \left(f'(x) - f'(x_0)\right) - \int_{x_0}^{x} t f''(t) dt \\
+    &= x \int_{x_0}^{x} f''(t) dt - \int_{x_0}^{x} t f''(t) dt \\
+    &= \int_{x_0}^{x} (x - t) f''(t) dt
+\end{align*}
+همچنین برای سه جمله داریم:
+\begin{align*}
+    \text{Error} &= f(x) - \left(f(x_0) + f'(x_0)(x-x_0) + \frac{f''(x_0)(x-x_0)^2}{2!}\right)\\
+    &= \left(f(x) - \left(f(x_0) + f'(x_0)(x-x_0)\right)\right) - \frac{f''(x_0)(x-x_0)^2}{2}\\
+    &= \int_{x_0}^{x} (x - t) f''(t) dt - \frac{f''(x_0)(x-x_0)^2}{2}\\
+    &= \Big[\frac{(x-t)^2}{2} f''(t)\Big]_{x_0}^{x} + \int_{x_0}^{x} \frac{(x-t)^2 f'''(t)}{2} dt - \frac{f''(x_0)(x-x_0)^2}{2}\\
+    &= \int_{x_0}^{x} \frac{(x-t)^2 f'''(t)}{2!} dt
+\end{align*}
+پس به همین ترتیب داریم که خطا برابر است با:
+\begin{gather*}
+    \int_{x_0}^{x} \frac{(x-t)^n f^{(n+1)}(t)}{n!} dt
+\end{gather*}
+\end{document}
