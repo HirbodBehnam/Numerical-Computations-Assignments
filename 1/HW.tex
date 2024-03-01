@@ -1,0 +1,109 @@
+% !TEX program = xelatex
+\documentclass[]{article}
+\usepackage{commons/course}
+
+\begin{document}
+\printheader
+
+\section*{سوال اول}
+به صورت کلی می‌دانیم که چند جمله‌ای درجه
+$n$
+تیلور حول نقطه 0 برابر است با
+\begin{gather*}
+    \sum_{i=0}^{n} \frac{f^{(i)}(0)}{i!}(x)^i
+\end{gather*}
+حال با توجه به این موضوع قسمت‌های این سوال را حل می‌کنیم:
+\subsection*{قسمت اول}
+در ابتدا مشخص است که این عبارت برابر است با $\ln(1 + x) - \ln(1 - x)$. پس بسط تیلور را برای دو $\ln$ می‌نویسیم. برای شروع مشخصا از مشتق‌ها شروع می‌کنیم:
+\begin{align*}
+    f(x) &= \ln(1 + x)\\
+    f'(x) &= \frac{1}{1 + x} = (1 + x)^{-1}\\
+    f''(x) &= -(1 + x)^{-2}\\
+    f'''(x) &= 2(1 + x)^{-3}\\
+    f''''(x) &= -6(1 + x)^{-4}\\
+    &\vdots\\
+    f^{(n)}(x) &= (-1)^{(n-1)} (n-1)! (1+x)^{-n} \quad x > 0
+\end{align*}
+مشخص است که
+$f^{(n)}(0) = (-1)^{(n-1)} (n-1)!$
+است. از آن طرف به صورت مشابه داریم:
+\begin{align*}
+    g(x) &= \ln(1 - x)\\
+    g'(x) &= -\frac{1}{1 - x} = -(1 - x)^{-1}\\
+    g''(x) &= (1 - x)^{-2}\\
+    g'''(x) &= -2(1 - x)^{-3}\\
+    g''''(x) &= 6(1 - x)^{-4}\\
+    &\vdots\\
+    g^{(n)}(x) &= (-1)^{n} (n-1)! (1-x)^{-n} \quad x > 0
+\end{align*}
+مشخص است که
+$g^{(n)}(0) = (-1)^{n} (n-1)!$
+است. همچنین دقت کنید که جمله‌ی صفرم در هر دو عبارت برابر 0 است
+است چرا که $\ln 1 = 0$.
+پس در نهایت داریم برای جمله‌ی
+$n$ام
+تیلور این عبارت که:
+\begin{align*}
+    &\sum_{i=1}^{n} \frac{(-1)^{(i-1)} (i-1)!}{i!}(x)^i - \frac{(-1)^{i} (i-1)!}{i!}(x)^i\\
+    =&\sum_{i=1}^{n} \frac{(-1)^{(i-1)}}{i}(x)^i - \frac{(-1)^{i}}{i}(x)^i\\
+    =&\sum_{i=1}^{n} \frac{(-1)^{(i-1)}}{i}(x)^i + \frac{(-1)^{(i-1)}}{i}(x)^i\\
+    =&\boxed{2\sum_{i=1}^{n} \frac{(-1)^{(i-1)}}{i}(x)^i}
+\end{align*}
+\subsection*{قسمت دوم}
+با توجه به \link{https://en.wikipedia.org/wiki/Inverse_hyperbolic_functions\#Derivatives}{ویکیپدیا}:
+\begin{gather*}
+    \frac{d}{dx}\operatorname{arcsinh}(x) = \frac{1}{\sqrt{(x^2+1)}}\\
+    \operatorname{arcsinh}(0) = 0
+\end{gather*}
+پس عملا داریم:
+\begin{align*}
+    f(0) &= \operatorname{arcsinh}(0) = 0\\
+    f'(0) &= \frac{1}{\sqrt{(x^2+1)}} = (x^2+1)^{-\frac{1}{2}} = (0^2+1)^{-\frac{1}{2}} = 1\\
+    f''(0) &= -\frac{2x}{2} (x^2+1)^{-\frac{3}{2}} = 0\\
+    f'''(0) &= 3x^2 (x^2+1)^{-\frac{5}{2}} - (x^2+1)^{-\frac{3}{2}} = -1\\
+    f''''(0) &= 6x (x^2+1)^{-\frac{5}{2}} - 15x^2 (x^2+1)^{-\frac{7}{2}} + 3x^2 (x^2+1)^{-\frac{5}{2}} \\
+    &= 9x (x^2+1)^{-\frac{5}{2}} - 15x^2 (x^2+1)^{-\frac{7}{2}} = 0\\
+    f'''''(0) &= 9 (x^2+1)^{-\frac{5}{2}} = 9
+\end{align*}
+حال پس برای بسط تیلور داریم:
+\begin{align*}
+    &\sum_{n=0}^{5} \frac{f^{(n)}(0)}{n!}(x)^n\\
+    =&\frac{1}{1!}(x)^1 + \frac{-1}{3!}(x)^3 + \frac{9}{5!}(x)^5\\
+    =&\boxed{x - \frac{x^3}{6} + \frac{3x^5}{40}}
+\end{align*}
+\subsection*{قسمت سوم}
+TODO
+\section*{سوال دوم}
+\subsection*{قسمت اول}
+در ابتدا داریم:
+\begin{align*}
+    f(0) &= (1 + x)^{-1} = 1\\
+    f'(0) &= -(1 + x)^{-2} = -1\\
+    f''(0) &= 2(1 + x)^{-3} = 2\\
+    f'''(0) &= -6(1 + x)^{-4} = -6\\
+    &\vdots\\
+    f^{(n)}(0) &= (-1)^{n} (n)!
+\end{align*}
+پس بسط ما برابر است با:
+\begin{gather*}
+    \sum_{n=0}^{\infty} \frac{(-1)^{n} (n)!}{n!}(x)^n = (-x)^n
+\end{gather*}
+حال عملا اگر جای
+$x$ قرار دهیم $e^{-x}$
+داریم:
+\begin{gather*}
+    \frac{1}{1+e^{-x}} = \sum_{n=0}^{\infty} (-e^{-x})^n
+\end{gather*}
+می‌دانیم که
+$e^x = \sum_{n=0}^{\infty} \frac{1}{n!}x^n$
+است. پس
+$e^{-x} = \sum_{n=0}^{\infty} \frac{1}{n!}(-x)^n$
+است. پس داریم:
+\begin{align*}
+    \frac{1}{1+e^{-x}} &= \sum_{n=0}^{\infty} (- \sum_{m=0}^{\infty} \frac{1}{m!}(-x)^m)^n\\
+    &= 
+\end{align*}
+\section*{سوال سوم}
+\section*{سوال چهارم}
+\section*{سوال پنجم}
+\end{document}
