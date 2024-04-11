@@ -1,0 +1,103 @@
+% !TEX program = xelatex
+\documentclass[]{article}
+\usepackage{commons/course}
+
+\begin{document}
+\printheader
+
+\section*{سوال اول}
+عملا پس نقطه‌هایی که باید
+interpolation
+را روی آن‌ها بزنیم برابر هستند با
+$\left(x_i, \left(x_i\right)^n\right)$
+هستند. پس عملا
+interpolation
+ما برابر است با
+\begin{gather*}
+    \sum_{k=0}^{n} (x_k)^n L_{n, k} (x) = \sum_{k=0}^{n} \Bigl((x_k)^n \prod_{i=0, i \neq k}^{n} \frac{x - x_i}{x_k - x_i}\Bigr)
+\end{gather*}
+حال ضریب‌های خواسته شده را بررسی می‌کنیم. در ابتدا مشخص است که برای
+$x^n$
+در داخل
+$\prod$
+هیچ ضریبی برای
+$x$ها
+در صورت وجود ندارد و در نتیجه پس ضریب
+$x^n$
+برابر است با:
+\begin{gather*}
+    \sum_{k=0}^{n} \Bigl( (x_k)^n \prod_{i=0, i \neq k}^{n} \frac{1}{x_k - x_i} \Bigr)
+\end{gather*}
+حال ضریب جمله‌ی
+$x^{n-1}$
+را حساب می‌کنیم. می‌دانیم که ضریب جلمه‌ی
+$x^{n-1}$
+در
+$\prod_{i=1}^n (x + x_i)$
+برابر
+$\sum_{i=1}^n x_i$
+است. پس در نتیجه ضریب جمله
+$x^{n-1}$
+در عبارت
+interpolation
+برابر است با
+\begin{gather*}
+    \sum_{k=0}^{n} \Bigl((x_k)^n \bigl( \sum_{i=0, i \neq k}^{n} -x_i  \bigr) \bigl( \prod_{i=0, i \neq k}^{n} \frac{1}{x_k - x_i} \bigr) \Bigr)
+\end{gather*}
+\section*{سوال دوم}
+در ابتدا می‌‌دانیم که
+$\Delta^2P(0)$
+عملا برابر است با
+$\Delta P(1) - \Delta P(0)$.
+فرض کنید که
+$P(x) = ax^4 + bx^3 + cx^2 + dx + e$
+است.
+پس داریم:
+\begin{align*}
+    \Delta^4P(0) &= \Delta^3 P(1) - \Delta^3 P(0)\\
+    &= \Delta^2 P(2) - \Delta^2 P(1) - (\Delta^2 P(1) - \Delta^2 P(0))\\
+    &= \Delta^2 P(2) - 2\Delta^2 P(1) + \Delta^2 P(0)\\
+    &= \Delta P(3) - \Delta P(2) - 2(\Delta P(2) - \Delta P(1)) + \Delta P(1) - \Delta P(0)\\
+    &= \Delta P(3) - 3\Delta P(2) + 3\Delta P(1) - \Delta P(0)\\
+    &= P(4) - P(3) - 3(P(3) - P(2)) + 3(P(2) - P(1)) - (P(1) - P(0))\\
+    &= P(4) - 4P(3) + 6P(2) - 4P(1) + P(0)\\
+    &= 24a = 24\\
+    &\implies \boxed{a = 1}
+\end{align*}
+همچنین برای
+$\Delta^3 P(0)$
+داریم:
+\begin{align*}
+    \Delta^3P(0) &= \Delta^2 P(1) - \Delta^2 P(0)\\
+    &= \Delta P(2) - \Delta P(1) - (\Delta P(1) - \Delta P(0))\\
+    &= \Delta P(2) - 2\Delta P(1) + \Delta P(0)\\
+    &= P(3) - P(2) - 2(P(2) - P(1)) + P(1) - P(0)\\
+    &= P(3) - 3P(2) + 3P(1) - P(0)\\
+    &= 36a + 6b = 6\\
+    &\implies \boxed{b = -5}
+\end{align*}
+همچنین برای
+$\Delta^2 P(0)$
+داریم:
+\begin{align*}
+    \Delta^2P(0) &= \Delta P(1) - \Delta P(0)\\
+    &= P(2) - P(1) - (P(1) - P(0))\\
+    &= P(2) - 2 P(1) + P(0)\\
+    &= 14a + 6b + 2c = 0\\
+    &\implies \boxed{c = 8}
+\end{align*}
+در نهایت برای خود خواسته‌ی سوال داریم:
+\begin{align*}
+    \Delta^2P(10) &= \Delta P(11) - \Delta P(10)\\
+    &= P(12) - P(11) - (P(11) - P(10))\\
+    &= P(12) - 2 P(11) + P(10)\\
+    &= 1454a + 66b + 2c = 0\\
+    &\implies \boxed{\Delta^2P(10) = 1140}
+\end{align*}
+\section*{سوال سوم}
+\section*{سوال چهارم}
+\section*{سوال پنجم}
+\section*{سوال ششم}
+\section*{سوال هفتم}
+\section*{سوال هشتم}
+\end{document}
