@@ -44,6 +44,21 @@ interpolation
 \begin{gather*}
     \sum_{k=0}^{n} \Bigl((x_k)^n \bigl( \sum_{i=0, i \neq k}^{n} -x_i  \bigr) \bigl( \prod_{i=0, i \neq k}^{n} \frac{1}{x_k - x_i} \bigr) \Bigr)
 \end{gather*}
+حال فرض کنید که نقاط ما برابر
+$(i, i^n)$
+هستند که
+$0 \le i \le n$
+است. در این حالت داریم:
+\begin{align*}
+    \sum_{k=0}^{n} \Bigl(k^n \bigl( \sum_{i=0, i \neq k}^{n} -i  \bigr) \bigl(\prod_{i=0, i \neq k}^{n} \frac{1}{k - i} \bigr) \Bigr)
+    &= \sum_{k=0}^{n} \Bigl(k^n (k - \frac{n(n+1)}{2}) \bigl((-1)^{n-k} \frac{1}{k!} \frac{1}{(n - k)!} \bigr) \Bigr)\\
+    &= \sum_{k=0}^{n} \Bigl(k^{n+1} \frac{(-1)^{n-k}}{k!(n - k)!} \Bigr) - \frac{n(n+1)}{2} \sum_{k=0}^{n} \Bigl(k^n \frac{(-1)^{n-k}}{k!(n - k)!}\Bigr)\\
+    &=0\\
+    &\implies\\
+    \frac{n(n+1)}{2}
+    &=\frac{\sum_{k=0}^{n} \Bigl(k^{n+1} \bigl( \prod_{i=0, i \neq k}^{n} \frac{1}{k - i} \bigr) \Bigr)}{\sum_{k=0}^{n} \Bigl(k^n \bigl( \prod_{i=0, i \neq k}^{n} \frac{1}{k - i} \bigr) \Bigr)}\\
+    &=\sum_{k=0}^{n} \frac{k^{n+1} \bigl( \prod_{i=0, i \neq k}^{n} \frac{1}{k - i} \bigr)}{k^n \bigl( \prod_{i=0, i \neq k}^{n} \frac{1}{k - i} \bigr)}
+\end{align*}
 \section*{سوال دوم}
 در ابتدا می‌‌دانیم که
 $\Delta^2P(0)$
@@ -300,5 +315,26 @@ $\frac{f[u, x_0, x_1, \dots, x_n] - f[v, x_0, x_1, \dots, x_n]}{u - v}$
 است که در اینجا برابر می‌شود با
 $f[x, x, x_0, x_1, \dots, x_n]$.
 \section*{سوال هفتم}
+کافی است که از روش نیوتن و
+\lr{divided differences}
+:استفاده بکنیم. در ابتدا برای سه نقطه اول داریم
+\begin{gather*}
+    p_2^{(0,2)} = f[x_0] + f[x_0,x_1] (x - x_0) + f[x_0,x_1,x_2] (x - x_0)(x - x_1)
+\end{gather*}
+و برای سه نقطه بعدی داریم:
+\begin{gather*}
+    p_3^{(1,3)} = f[x_1] + f[x_1,x_2] (x - x_1) + f[x_1,x_2,x_3] (x - x_1)(x - x_2)
+\end{gather*}
+همچنین برای چهار نقطه داریم:
+\begin{gather*}
+    P(x) = f[x_0] + f[x_0,x_1] (x - x_0) + f[x_0,x_1,x_2] (x - x_0)(x - x_1) + f[x_0,x_1,x_2,x_3] (x - x_0)(x - x_1)(x - x_2)
+\end{gather*}
+پس داریم:
+\begin{gather*}
+    (x_3-x) p_2^{(0,2)} = - (f[x_0] (x- x_3) + f[x_0,x_1] (x - x_0) (x- x_3) + f[x_0,x_1,x_2] (x - x_0)(x - x_1)(x- x_3))
+\end{gather*}
+\begin{gather*}
+    (x-x_0) p_3^{(1,3)} = f[x_1] (x-x_0) + f[x_1,x_2] (x-x_0) (x - x_1) + f[x_1,x_2,x_3] (x-x_0) (x - x_1)(x - x_2)
+\end{gather*}
 \section*{سوال هشتم}
 \end{document}
