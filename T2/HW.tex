@@ -44,21 +44,58 @@ interpolation
 \begin{gather*}
     \sum_{k=0}^{n} \Bigl((x_k)^n \bigl( \sum_{i=0, i \neq k}^{n} -x_i  \bigr) \bigl( \prod_{i=0, i \neq k}^{n} \frac{1}{x_k - x_i} \bigr) \Bigr)
 \end{gather*}
+یک نکته که باید توجه بکنید این است که از آنجا که ما
+$n+1$
+نقطه داریم و تابع‌ای که در حال تخمین زدن آن هستیم یک چند جمله‌ای است، پس ضریب
+$x^n$
+برابر 1 است و ضریب
+$x^{n-1}$
+برابر 0 است. به عبارتی به صورت کلی باید
+\lr{interpolation}
+ما کلا برابر
+$x^n$
+شود و هیچ جمله‌ی دیگری نداشته باشد.
+\subsection*{قسمت اول}
 حال فرض کنید که نقاط ما برابر
 $(i, i^n)$
 هستند که
 $0 \le i \le n$
-است. در این حالت داریم:
+است. در این حالت داریم برای ضریب جمله‌های داده شده که:
 \begin{align*}
+    \sum_{k=0}^{n} \Bigl( k^n \prod_{i=0, i \neq k}^{n} \frac{1}{k - i} \Bigr)
+    &= \sum_{k=0}^{n} \Bigl( k^n \bigl((-1)^{n-k} \frac{1}{k!} \frac{1}{(n - k)!} \bigr) \Bigr)\\
+    &= \boxed{\sum_{k=0}^{n} \Bigl(k^n \frac{(-1)^{n-k}}{k!(n - k)!}\Bigr) = 1}\\
     \sum_{k=0}^{n} \Bigl(k^n \bigl( \sum_{i=0, i \neq k}^{n} -i  \bigr) \bigl(\prod_{i=0, i \neq k}^{n} \frac{1}{k - i} \bigr) \Bigr)
     &= \sum_{k=0}^{n} \Bigl(k^n (k - \frac{n(n+1)}{2}) \bigl((-1)^{n-k} \frac{1}{k!} \frac{1}{(n - k)!} \bigr) \Bigr)\\
-    &= \sum_{k=0}^{n} \Bigl(k^{n+1} \frac{(-1)^{n-k}}{k!(n - k)!} \Bigr) - \frac{n(n+1)}{2} \sum_{k=0}^{n} \Bigl(k^n \frac{(-1)^{n-k}}{k!(n - k)!}\Bigr)
-    %&=0\\
-    %&\implies\\
-    %\frac{n(n+1)}{2}
-    %&=\frac{\sum_{k=0}^{n} \Bigl(k^{n+1} \bigl( \prod_{i=0, i \neq k}^{n} \frac{1}{k - i} \bigr) \Bigr)}{\sum_{k=0}^{n} \Bigl(k^n \bigl( \prod_{i=0, i \neq k}^{n} \frac{1}{k - i} \bigr) \Bigr)}\\
-    %&=\sum_{k=0}^{n} \frac{k^{n+1} \bigl( \prod_{i=0, i \neq k}^{n} \frac{1}{k - i} \bigr)}{k^n \bigl( \prod_{i=0, i \neq k}^{n} \frac{1}{k - i} \bigr)}
+    &= \sum_{k=0}^{n} \Bigl(k^{n+1} \frac{(-1)^{n-k}}{k!(n - k)!} \Bigr) - \frac{n(n+1)}{2} \stackrel{1}{\cancel{\sum_{k=0}^{n} \Bigl(k^n \frac{(-1)^{n-k}}{k!(n - k)!}\Bigr)}}\\
+    &= 0\\
+    &\implies\\
+    \sum_{k=0}^{n} \Bigl(k^{n+1} \frac{(-1)^{n-k}}{k!(n - k)!} \Bigr) &= \frac{n(n+1)}{2}\\
+    &\stackrel{\times n!}{\implies}\\
+    \sum_{k=0}^{n} \Bigl((-1)^{n-k} k^{n+1} \frac{n!}{k!(n - k)!} \Bigr) &= \frac{n(n+1)!}{2}
 \end{align*}
+\begin{gather*}
+    \boxed{\sum_{k=0}^{n} (-1)^{n-k} {n \choose k} k^{n+1} = \frac{n(n+1)!}{2}}
+\end{gather*}
+\subsection*{قسمت دوم}
+حال این بار فرض بکنید که نقاط ما برابر
+$(a - i,(a - i)^n)$
+هستند که
+$a$
+یک عدد دلخواه هست و
+$0 \le i \le n$
+است. دوباره مثل قسمت قبل داریم:
+\begin{align*}
+    \sum_{k=0}^{n} \Bigl( (a-k)^n \prod_{i=0, i \neq k}^{n} \frac{1}{(a-k) - (a-i)} \Bigr)
+    &= \sum_{k=0}^{n} \Bigl( (a-k)^n \prod_{i=0, i \neq k}^{n} \frac{1}{i - k} \Bigr)\\
+    &= \sum_{k=0}^{n} \Bigl( (a-k)^n \bigl((-1)^{n-k} \frac{1}{k!} \frac{1}{(n - k)!} \bigr) \Bigr)\\
+    &= \sum_{k=0}^{n} \Bigl((a-k)^n \frac{(-1)^{n-k}}{k!(n - k)!}\Bigr) = 1\\
+    &\stackrel{\times n!}{\implies}\\
+    n! &= \sum_{k=0}^{n} \Bigl((a-k)^n (-1)^{n-k} \frac{n!}{k!(n - k)!}\Bigr)
+\end{align*}
+\begin{gather*}
+    \boxed{\sum_{k=0}^{n} (-1)^{n-k} {n \choose k} (a-k)^n = n!}
+\end{gather*}
 \section*{سوال دوم}
 در ابتدا می‌‌دانیم که
 $\Delta^2P(0)$
