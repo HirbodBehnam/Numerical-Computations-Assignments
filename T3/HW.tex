@@ -73,7 +73,7 @@ $n = 4$
     h = \sqrt{\frac{12 \times 0.001}{(1 - 0) |\max f''(x)|}}
 \end{gather*}
 حال باید
-$|\max \operatorname{cosh}''(x)|$
+$|\max \operatorname{cosh}''(x^2)|$
 زمانی که
 $0 \le x \le 1$
 است را پیدا بکنیم. از آنجا که اگر دو بار از
@@ -83,12 +83,12 @@ $\operatorname{cosh}(x)$
 می‌شود پس در نتیجه ماکس آن در
 $x = 1$
 که نتیجه می‌دهد:
-$|\max \operatorname{cosh}''(x)| \approx 1.543$
+$|\max \operatorname{cosh}''(x^2)| \approx 8.523$
 پس در نتیجه در کل داریم:
 \begin{gather*}
-    h = \sqrt{\frac{12 \times 0.001}{(1 - 0) 1.543}} \approx 0.088\\
-    n > \frac{1 - 0}{0.088} = 11.3636363636\\
-    \implies \boxed{n \ge 12}
+    h = \sqrt{\frac{12 \times 0.001}{(1 - 0) 8.523}} \approx 0.0375\\
+    n > \frac{1 - 0}{0.0375} = 26.66667\\
+    \implies \boxed{n \ge 27}
 \end{gather*}
 \subsection*{روش سیمپسون}
 داریم که خطا برابر است با:
@@ -104,12 +104,12 @@ $|\max \operatorname{cosh}''(x)| \approx 1.543$
 داریم که حداکثر
 $|f^{(4)}(x)|$
 برابر با
-$1.543$
+$99.616$
 است در نقطه‌ی 1. پس داریم:
 \begin{gather*}
-    h = \sqrt[4]{\frac{180 \times 0.001}{(1 - 0) 1.543}} \approx 0.584\\
-    n > \frac{1 - 0}{0.584} = 1.71232876712\\
-    \implies \boxed{n \ge 2}
+    h = \sqrt[4]{\frac{180 \times 0.001}{(1 - 0) 99.616}} \approx 0.206\\
+    n > \frac{1 - 0}{0.206} = 4.8544\\
+    \implies \boxed{n \ge 5}
 \end{gather*}
 \section*{سوال چهارم}
 \subsection*{قسمت اول}
