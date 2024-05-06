@@ -171,7 +171,7 @@ $P(x)$
 \begin{align*}
     \int_{0}^{nh} f(x) dx &= \sum_{i=i}^{n} \int_{(i-1)h}^{ih} f(x)dx\\
     &= \sum_{i=i}^{n} \frac{h}{2}(f((i-1)h) + f(ih)) + \frac{h^2}{12} (f'((i-1)h) - f'(ih))\\
-    &= \frac{h}{2}(f(0) + 2f(h) + 2f(2h) + \dots + 2f((n - 1)h) + f(h)) + \frac{h^2}{12} (f'(0) - f'(nh))\\
+    &= \frac{h}{2}(f(0) + 2f(h) + 2f(2h) + \dots + 2f((n - 1)h) + f(nh)) + \frac{h^2}{12} (f'(0) - f'(nh))\\
     &= \frac{h}{2}(f(0) + 2 \bigl(\sum_{i=1}^{n-1} f(ih)\bigr) + f(h)) + \frac{h^2}{12} (f'(0) - f'(nh))
 \end{align*}
 همان طور که می‌بینید عبارت اول دقیقا همان انتگرال ذوزنقه‌ای در آمد.
