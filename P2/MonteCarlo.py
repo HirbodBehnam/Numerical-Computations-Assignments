@@ -1,8 +1,6 @@
 import numpy as np
 import sympy as sym
-from sympy import Interval
 from sympy.utilities.lambdify import lambdify
-from sympy.calculus.util import maximum
 
 # Random shit
 t = sym.symbols("t")
