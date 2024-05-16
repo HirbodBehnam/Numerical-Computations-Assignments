@@ -1,5 +1,6 @@
 import numpy as np
 import sympy as sym
+from sympy.utilities.lambdify import lambdify
 
 # Random shit
 x = sym.symbols("x")
@@ -23,9 +24,16 @@ def generate_lagrange_poly():
         lagrange_poly += generate_term(i)
     return lagrange_poly
 
-terms = sym.Poly(sym.expand(sym.simplify(generate_lagrange_poly()))).all_coeffs()
-for degree, term in enumerate(terms):
-    if term < 10e-6:
-        continue
-    print(len(terms) - degree - 1)
-    exit()
+degree = 0
+try:
+    while True:
+        lambdify_x = lambdify(x, sym.diff(generate_lagrange_poly(), x), 'numpy')
+        new_point_y = lambdify_x(np.array(list(map(lambda x: x[0], points))))
+        if all(map(lambda x: x < 10e-6, new_point_y)):
+            print(degree)
+            break
+        # Fix points
+        points = list(filter(lambda x: x[1] > 10e-6, zip(map(lambda x: x[0], points), list(new_point_y))))
+        degree += 1
+except: # Not sure when we reach here
+    pass
