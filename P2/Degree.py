@@ -36,4 +36,4 @@ try:
         points = list(filter(lambda x: x[1] > 10e-6, zip(map(lambda x: x[0], points), list(new_point_y))))
         degree += 1
 except: # Not sure when we reach here
-    pass
+    print(degree)
