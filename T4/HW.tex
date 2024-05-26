@@ -126,6 +126,23 @@ $y$
         1 & 0.5 & 0.046604644214 & 0.205298786085\\
     \end{tabular}
 \end{latin}
-\section*{سوال سوم}
 \section*{سوال چهارم}
+برای این سوال فرض می‌کنیم که
+$h = 2$
+است. سپس با این حال در ابتدا برای پیدا کردن یک مقدار اولیه دیگر از روش اویلر استفاده می‌کنیم:
+\begin{gather*}
+    y(2) \approx y(0) + h f(0, y(0)) = 6 + 0.5 (0.2 \times 6 - 0.1 \times 6) = 1.2
+\end{gather*}
+حال در ادامه داریم:
+\begin{align*}
+    y_2 &= y_1 + \frac{3}{2} \times 2 (0.2 \times 1.2000 - 0.1 \times 1.2000) - \frac{2}{2} (0.2 \times 6.0000 - 0.1 \times 6.0000) = 1.2\\
+y_3 &= y_2 + \frac{3}{2} \times 2 (0.2 \times 3.8880 - 0.1 \times 3.8880) - \frac{2}{2} (0.2 \times 1.2000 - 0.1 \times 1.2000) = 3.888\\
+y_4 &= y_3 + \frac{3}{2} \times 2 (0.2 \times 1.5898 - 0.1 \times 1.5898) - \frac{2}{2} (0.2 \times 3.8880 - 0.1 \times 3.8880) = 1.59\\
+y_5 &= y_4 + \frac{3}{2} \times 2 (0.2 \times 2.5195 - 0.1 \times 2.5195) - \frac{2}{2} (0.2 \times 1.5898 - 0.1 \times 1.5898) = 2.52\\
+y_6 &= y_5 + \frac{3}{2} \times 2 (0.2 \times 2.0616 - 0.1 \times 2.0616) - \frac{2}{2} (0.2 \times 2.5195 - 0.1 \times 2.5195) = 2.062\\
+y_7 &= y_6 + \frac{3}{2} \times 2 (0.2 \times 2.1544 - 0.1 \times 2.1544) - \frac{2}{2} (0.2 \times 2.0616 - 0.1 \times 2.0616) = 2.154\\
+y_8 &= y_7 + \frac{3}{2} \times 2 (0.2 \times 2.0673 - 0.1 \times 2.0673) - \frac{2}{2} (0.2 \times 2.1544 - 0.1 \times 2.1544) = 2.067\\
+y_9 &= y_8 + \frac{3}{2} \times 2 (0.2 \times 2.0588 - 0.1 \times 2.0588) - \frac{2}{2} (0.2 \times 2.0673 - 0.1 \times 2.0673) = 2.059\\
+y_{10} &= y_9 + \frac{3}{2} \times 2 (0.2 \times 2.0364 - 0.1 \times 2.0364) - \frac{2}{2} (0.2 \times 2.0588 - 0.1 \times 2.0588) = \boxed{2.036}
+\end{align*}
 \end{document}
