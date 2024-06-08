@@ -1,0 +1,270 @@
+% !TEX program = xelatex
+\documentclass[]{article}
+\usepackage{commons/course}
+
+\begin{document}
+\printheader
+
+\section*{سوال چهارم}
+عملا در ابتدا داریم:
+\begin{gather*}
+    D = \begin{bmatrix}
+        4 & 0 & 0\\
+        0 & 4 & 0\\
+        0 & 0 & 4
+    \end{bmatrix}
+    \implies
+    D^{-1} = \begin{bmatrix}
+        0.25 & 0 & 0\\
+        0 & 0.25 & 0\\
+        0 & 0 & 0.25
+    \end{bmatrix}\\
+    L + U = \begin{bmatrix}
+        0 & -1 & 0\\
+        -1 & 0 & -1\\
+        0 & -1 & 0
+    \end{bmatrix}
+\end{gather*}
+حال کافی است که طبق فرمول
+$\mathbf{x}^{(k+1)} = D^{-1} (\mathbf{b} - (L+U) \mathbf{x}^{(k)})$
+و مقدار اولیه
+$\mathbf{x}^{(0)} = \begin{bmatrix}
+    0\\
+    0\\
+    0 
+\end{bmatrix}$
+تا
+$\mathbf{x}^{(5)}$
+حساب بکنیم. پس داریم:
+\begin{align*}
+    \mathbf{x}^{(1)} = \begin{bmatrix}
+        0.25 & 0 & 0\\
+        0 & 0.25 & 0\\
+        0 & 0 & 0.25
+    \end{bmatrix} \left(\begin{bmatrix}
+        3\\
+        2\\
+        3
+    \end{bmatrix} - \begin{bmatrix}
+        0 & -1 & 0\\
+        -1 & 0 & -1\\
+        0 & -1 & 0
+    \end{bmatrix}\begin{bmatrix}
+        0\\
+        0\\
+        0
+    \end{bmatrix}\right)
+    &=
+    \begin{bmatrix}
+        0.75\\
+        0.5\\
+        0.75
+    \end{bmatrix}\\
+    \mathbf{x}^{(2)} = \begin{bmatrix}
+        0.25 & 0 & 0\\
+        0 & 0.25 & 0\\
+        0 & 0 & 0.25
+    \end{bmatrix} \left(\begin{bmatrix}
+        3\\
+        2\\
+        3
+    \end{bmatrix} - \begin{bmatrix}
+        0 & -1 & 0\\
+        -1 & 0 & -1\\
+        0 & -1 & 0
+    \end{bmatrix}\begin{bmatrix}
+        0.75\\
+        0.5\\
+        0.75
+    \end{bmatrix}\right)
+    &=
+    \begin{bmatrix}
+        0.875\\
+        0.875\\
+        0.875
+    \end{bmatrix}\\
+    \mathbf{x}^{(3)} = \begin{bmatrix}
+        0.25 & 0 & 0\\
+        0 & 0.25 & 0\\
+        0 & 0 & 0.25
+    \end{bmatrix} \left(\begin{bmatrix}
+        3\\
+        2\\
+        3
+    \end{bmatrix} - \begin{bmatrix}
+        0 & -1 & 0\\
+        -1 & 0 & -1\\
+        0 & -1 & 0
+    \end{bmatrix}\begin{bmatrix}
+        0.875\\
+        0.875\\
+        0.875
+    \end{bmatrix}\right)
+    &=
+    \begin{bmatrix}
+        0.96875\\
+        0.9375\\
+        0.96875
+    \end{bmatrix}\\
+    \mathbf{x}^{(4)} = \begin{bmatrix}
+        0.25 & 0 & 0\\
+        0 & 0.25 & 0\\
+        0 & 0 & 0.25
+    \end{bmatrix} \left(\begin{bmatrix}
+        3\\
+        2\\
+        3
+    \end{bmatrix} - \begin{bmatrix}
+        0 & -1 & 0\\
+        -1 & 0 & -1\\
+        0 & -1 & 0
+    \end{bmatrix}\begin{bmatrix}
+        0.96875\\
+        0.9375\\
+        0.96875
+    \end{bmatrix}\right)
+    &=
+    \begin{bmatrix}
+        0.984375\\
+        0.984375\\
+        0.984375
+    \end{bmatrix}\\
+    \mathbf{x}^{(5)} = \begin{bmatrix}
+        0.25 & 0 & 0\\
+        0 & 0.25 & 0\\
+        0 & 0 & 0.25
+    \end{bmatrix} \left(\begin{bmatrix}
+        3\\
+        2\\
+        3
+    \end{bmatrix} - \begin{bmatrix}
+        0 & -1 & 0\\
+        -1 & 0 & -1\\
+        0 & -1 & 0
+    \end{bmatrix}\begin{bmatrix}
+        0.984375\\
+        0.984375\\
+        0.984375
+    \end{bmatrix}\right)
+    &=
+    \boxed{\begin{bmatrix}
+        0.99609375\\
+        0.9921875\\
+        0.99609375
+    \end{bmatrix}}\\
+\end{align*}
+\section*{سوال پنجم}
+در ابتدا دستگاه معادلات را تشکیل می‌دهیم:
+\begin{gather*}
+    A = \begin{bmatrix}
+        25 & 5 & 1\\
+        64 & 8 & 1\\
+        144 & 12 & 1
+    \end{bmatrix}
+    \quad
+    \mathbf{b} = \begin{bmatrix}
+        106.8\\
+        177.2\\
+        279.2
+    \end{bmatrix}
+\end{gather*}
+پس عملا داریم:
+\begin{gather*}
+    L_* = \begin{bmatrix}
+        25 & 0 & 0\\
+        64 & 8 & 0\\
+        144 & 12 & 1
+    \end{bmatrix}
+    \implies
+    L_*^{-1} = \begin{bmatrix}
+        0.04 & 0 & 0\\
+        -0.32 & 0.125 & 0\\
+        -1.92 & -1.5 & 1
+    \end{bmatrix}
+    \\
+    U = \begin{bmatrix}
+        0 & 5 & 1\\
+        0 & 0 & 1\\
+        0 & 0 & 0
+    \end{bmatrix}
+\end{gather*}
+همچنین می‌دانیم که فرمول هر مرحله
+$\mathbf{x}^{(k+1)} = L_*^{-1} (\mathbf{b} - U \mathbf{x}^{(k)})$
+است. حال در صورتی که کمی جلو برویم متوجه می‌شویم که
+اصلا جواب همگرا نمی‌شود!
+\begin{align*}
+    \mathbf{x}^{(1)} = \begin{bmatrix}
+        0.04 & 0 & 0\\
+        -0.32 & 0.125 & 0\\
+        -1.92 & -1.5 & 1
+    \end{bmatrix} \left(\begin{bmatrix}
+        106.8\\
+        177.2\\
+        279.2
+    \end{bmatrix} - \begin{bmatrix}
+        0 & 5 & 1\\
+        0 & 0 & 1\\
+        0 & 0 & 0
+    \end{bmatrix}\begin{bmatrix}
+        1\\
+        2\\
+        5
+    \end{bmatrix}\right)
+    &=
+    \begin{bmatrix}
+        3.672\\
+        -7.851\\
+        -155.356
+    \end{bmatrix}\\
+    \mathbf{x}^{(2)} = \begin{bmatrix}
+        0.04 & 0 & 0\\
+        -0.32 & 0.125 & 0\\
+        -1.92 & -1.5 & 1
+    \end{bmatrix} \left(\begin{bmatrix}
+        106.8\\
+        177.2\\
+        279.2
+    \end{bmatrix} - \begin{bmatrix}
+        0 & 5 & 1\\
+        0 & 0 & 1\\
+        0 & 0 & 0
+    \end{bmatrix}\begin{bmatrix}
+        3.672\\
+        -7.851\\
+        -155.356
+    \end{bmatrix}\right)
+    &=
+    \begin{bmatrix}
+        12.05644\\
+        -54.88202\\
+        -798.34312
+    \end{bmatrix}\\
+    \mathbf{x}^{(3)} = \begin{bmatrix}
+        0.04 & 0 & 0\\
+        -0.32 & 0.125 & 0\\
+        -1.92 & -1.5 & 1
+    \end{bmatrix} \left(\begin{bmatrix}
+        106.8\\
+        177.2\\
+        279.2
+    \end{bmatrix} - \begin{bmatrix}
+        0 & 5 & 1\\
+        0 & 0 & 1\\
+        0 & 0 & 0
+    \end{bmatrix}\begin{bmatrix}
+        12.05644\\
+        -54.88202\\
+        -798.34312
+    \end{bmatrix}\right)
+    &=
+    \begin{bmatrix}
+        47.1821288\\
+        -255.5141404\\
+        -3448.8568624
+    \end{bmatrix}
+\end{align*}
+دلیل اینکه این اتفاق می‌افتد به خاطر این است که
+$||L_*^{-1} U|| \ge 1$
+است که در این مسئله عملا برابر است با
+$10.32$.
+\end{document}
