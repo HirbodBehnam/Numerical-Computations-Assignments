@@ -5,6 +5,62 @@
 \begin{document}
 \printheader
 
+\section*{سوال اول}
+\subsection*{قسمت اول}
+% https://www.youtube.com/watch?v=_yn3F8h4Nkc
+برای خود رگرشن خطی به صورت برداری داریم:
+\begin{gather*}
+    \mathbf{y} = \mathbf{X} \mathbf{\theta} + \mathbf{\epsilon} \implies
+    \mathbf{\epsilon} = \mathbf{y} - \mathbf{X} \mathbf{\theta}
+\end{gather*}
+حال نکته‌ای که باید توجه بکنید این است که در صورتی که ما عبارت
+$(\mathbf{y} - \mathbf{X} \mathbf{\theta})^T(\mathbf{y} - \mathbf{X} \mathbf{\theta})$
+را حساب بکنیم عملا مثل این است که تک تک عضو‌های
+$\mathbf{\epsilon}$
+را به توان دو برسانیم و با هم جمع بزنیم.
+دقت بکنید که یک بردار افقی را ضرب در یک بردار عمودی کرده‌ایم که نتیجه‌ی آن صرفا یک عدد می‌شود.
+همچنین می‌توان دو منفی نیز در ضرب ماتریس‌ها ضرب کرد که داشته باشیم:
+\begin{gather*}
+    (\mathbf{X} \mathbf{\theta} - \mathbf{y})^T(\mathbf{X} \mathbf{\theta} - \mathbf{y})
+    =
+    \sum_{i=1}^n (\mathbf{\theta}^T \mathbf{x}^{(i)} - \mathbf{y}^{(i)})^2
+\end{gather*}
+حال اگر بخواهیم وزن داخل سوال را نیز در نظر بگیریم عملا مثل این است که قبل از جمع کردن تمامی
+عضو‌های
+$\mathbf{\epsilon}$
+آن‌ها را در یک عدد ضرب بکنیم که این عدد برای هر عضو متفاوت است. برای اینکه با بردار و ماتریس
+این را مدل بکنیم عملا کافی است که یک ماتریس قطری داشته باشیم که بردار
+$(\mathbf{X} \mathbf{\theta} - \mathbf{y})^T$
+را در آن ضرب بکنیم. با این کار هر کدام از عضو‌‌های
+$(\mathbf{X} \mathbf{\theta} - \mathbf{y})^T$
+به ترتیب در هر یک از اعضای قطر ماتریس ذکر شده ضرب می‌شوند. با این تعریف عملا باید ماتریسی مثل
+$\mathbf{W}$
+تعریف بکنیم که قطری است و هر عضو بر روی قطر آن برابر
+$w(i)$
+است. با این کار عملا داریم:
+\begin{gather*}
+    (\mathbf{X} \mathbf{\theta} - \mathbf{y})^T \mathbf{W} (\mathbf{X} \mathbf{\theta} - \mathbf{y})
+    =
+    \sum_{i=1}^n w(i) (\mathbf{\theta}^T \mathbf{x}^{(i)} - \mathbf{y}^{(i)})^2
+\end{gather*}
+% https://www.stat.cmu.edu/~cshalizi/mreg/15/lectures/24/lecture-24--25
+\subsection*{قسمت دوم}
+حال با باز کردن این عبارت داریم:
+\begin{gather*}
+    \mathbf{y}^T \mathbf{W} \mathbf{y} - \mathbf{y}^T \mathbf{W} \mathbf{X} \mathbf{\theta} - \mathbf{\theta}^T \mathbf{X} ^T \mathbf{W} \mathbf{y} + \mathbf{\theta}^T \mathbf{X}^T \mathbf{W} \mathbf{X} \mathbf{\theta}
+\end{gather*}
+حال با مشتق جزئی گرفتن نسبت به $\theta$ داریم:
+\begin{gather*}
+    \nabla_\theta J(\theta) = - \mathbf{X}^T \mathbf{W} \mathbf{y} + \mathbf{X}^T \mathbf{W} \mathbf{X} \mathbf{\theta}
+\end{gather*}
+حال این عبارت را برابر 0 قرار می‌دهیم و برابر
+$\mathbf{\theta}$
+حل می‌کنیم. داریم:
+\begin{gather*}
+    \mathbf{X}^T \mathbf{W} \mathbf{y} = \mathbf{X}^T \mathbf{W} \mathbf{X} \mathbf{\theta}\\
+    \implies\\
+    \mathbf{\theta} = (\mathbf{X}^T \mathbf{W} \mathbf{X})^{-1} \mathbf{X}^T \mathbf{W} \mathbf{y}
+\end{gather*}
 \section*{سوال چهارم}
 عملا در ابتدا داریم:
 \begin{gather*}
