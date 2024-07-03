@@ -18,4 +18,4 @@ add_executable(P5 main.cu
 
 set_target_properties(P5 PROPERTIES
         CUDA_SEPARABLE_COMPILATION ON
-        CUDA_ARCHITECTURES all)
+        CUDA_ARCHITECTURES 60)

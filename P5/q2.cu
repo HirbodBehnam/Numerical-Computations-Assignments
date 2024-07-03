@@ -1,4 +1,5 @@
 #include "util.cuh"
+#include <stdio.h>
 
 __global__ void calculate_l_terms(const float *x_terms, float *l_terms, float x) {
     unsigned int j = threadIdx.x;
@@ -25,7 +26,7 @@ __global__ void divided_differences(const float *x_terms, const float *y_terms, 
     __syncthreads();
 
     for (unsigned int j = 0; j < i; j++) {
-        current_data[i] = (prev_data[i] - prev_data[i - 1]) / (x_terms[i - j - 1] - x_terms[i]);
+        current_data[i] = (prev_data[i] - prev_data[i - 1]) / (x_terms[i]- x_terms[i - j - 1]);
         __syncthreads();
         prev_data[i] = current_data[i];
         __syncthreads();

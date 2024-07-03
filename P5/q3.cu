@@ -1,7 +1,7 @@
 __global__ void five_point(const float *y_terms, float *result, float h) {
     unsigned int size = blockDim.x;
     unsigned int i = threadIdx.x;
-    if (i < 2 || i > size - 2) {
+    if (i < 2 || i >= size - 2) {
         return;
     }
     result[i] = (y_terms[i - 2] - 8 * y_terms[i - 1] + 8 * y_terms[i + 1] - y_terms[i + 2]) / (12 * h);
